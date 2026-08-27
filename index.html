@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>meowonfone · $MFONE</title>
+  <meta name="description" content="meowonfone is bringing cute feline chaos, viral vibes, and nonstop meme energy to Solana. $MFONE" />
+  <meta name="theme-color" content="#0c0906" />
+  <meta property="og:title" content="meowonfone · $MFONE" />
+  <meta property="og:description" content="Cute feline chaos, viral vibes, and nonstop meme energy on Solana." />
+  <meta property="og:image" content="banner.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="banner.png" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&family=Nunito:wght@400;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vault: "#0c0906",
+            bronze: "#24180e",
+            gold: "#e8b84a",
+            goldlight: "#ffe08a",
+            ginger: "#e8923a",
+            gingerdeep: "#c46a1a",
+            cream: "#fff4e0",
+            whisker: "#f5c16c",
+          },
+          fontFamily: {
+            display: ['"Luckiest Guy"', "cursive"],
+            round: ["Fredoka", "sans-serif"],
+            sans: ["Nunito", "sans-serif"],
+            mono: ['"Share Tech Mono"', "ui-monospace", "monospace"],
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(232, 184, 74, 0.35)",
+            ginger: "0 12px 40px rgba(232, 146, 58, 0.45)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --ca: "TBA";
+      --gold: #e8b84a;
+      --ginger: #e8923a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0c0906;
+      color: #fff4e0;
+      overflow-x: hidden;
+    }
+
+    .page-wash {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(232, 184, 74, 0.12), transparent 55%),
+        url("banner.png") center / cover no-repeat;
+      filter: blur(18px) saturate(1.15) brightness(0.28);
+      transform: scale(1.08);
+      pointer-events: none;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      pointer-events: none;
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .gold-text {
+      background: linear-gradient(180deg, #fff6c8 0%, #f0c14a 38%, #c48a14 72%, #ffe08a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 3px 0 #5a3d00) drop-shadow(0 10px 24px rgba(232, 184, 74, 0.28));
+    }
+
+    .vault-card {
+      background:
+        linear-gradient(180deg, rgba(54, 38, 18, 0.72), rgba(12, 9, 6, 0.92));
+      border: 1px solid rgba(232, 184, 74, 0.32);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.55),
+        0 24px 60px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 220, 120, 0.16);
+      backdrop-filter: blur(14px);
+    }
+
+    .rivets::before,
+    .rivets::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffe08a, #b8860b 55%, #5a3d00);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+    .rivets::before { top: 10px; left: 10px; }
+    .rivets::after { top: 10px; right: 10px; }
+
+    .cat-float {
+      animation: catBob 4.2s ease-in-out infinite;
+    }
+    @keyframes catBob {
+      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+      50% { transform: translateY(-14px) rotate(1.5deg); }
+    }
+
+    .glow-pulse {
+      animation: glowPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(232, 146, 58, 0.55), 0 12px 40px rgba(232, 146, 58, 0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(232, 146, 58, 0), 0 12px 50px rgba(255, 208, 90, 0.55); }
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .coin {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff3b0, #e8b84a 45%, #9a6b10 100%);
+      box-shadow: inset -2px -3px 4px rgba(90, 50, 0, 0.45), 0 0 12px rgba(232, 184, 74, 0.4);
+      animation: coinFall linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    @keyframes coinFall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+      12% { opacity: 0.75; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .paw {
+      position: absolute;
+      width: 18px;
+      height: 16px;
+      opacity: 0.18;
+      background: #e8b84a;
+      border-radius: 50% 50% 45% 45%;
+      filter: blur(0.2px);
+    }
+    .paw::before {
+      content: "";
+      position: absolute;
+      left: 2px; top: -7px;
+      width: 6px; height: 7px;
+      background: inherit;
+      border-radius: 50%;
+      box-shadow: 8px 0 0 #e8b84a, 4px -4px 0 #e8b84a;
+    }
+
+    .phone-shell {
+      background: linear-gradient(160deg, #3a2a18, #120e0a 40%, #1a140e);
+      border-radius: 2.6rem;
+      padding: 12px;
+      border: 2px solid #d4af37;
+      box-shadow:
+        0 0 0 6px #2a1c0e,
+        0 0 0 8px #8a6a20,
+        0 40px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 220, 140, 0.35);
+    }
+    .phone-notch {
+      width: 118px;
+      height: 22px;
+      background: #0a0704;
+      border-radius: 0 0 16px 16px;
+      margin: 4px auto 10px;
+      position: relative;
+    }
+    .phone-notch::after {
+      content: "";
+      position: absolute;
+      top: 7px; left: 50%;
+      width: 42px; height: 6px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: #1f1810;
+    }
+
+    .bubble {
+      background: linear-gradient(180deg, #3a2816, #24180e);
+      border: 1px solid rgba(232, 184, 74, 0.28);
+      border-radius: 1.15rem 1.15rem 1.15rem 0.35rem;
+    }
+
+    .nav-blur {
+      background: linear-gradient(180deg, rgba(12, 9, 6, 0.88), rgba(12, 9, 6, 0.55));
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(232, 184, 74, 0.18);
+    }
+
+    .btn-buy {
+      background: linear-gradient(180deg, #f3b056, #e07a18 55%, #c45d0c);
+      color: #1a0e04;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+      border: 1px solid #ffd27a;
+    }
+    .btn-buy:hover { filter: brightness(1.08); }
+    .btn-chart {
+      background: linear-gradient(180deg, rgba(42, 28, 14, 0.9), rgba(18, 12, 8, 0.95));
+      color: #ffe08a;
+      border: 1px solid rgba(232, 184, 74, 0.55);
+    }
+    .btn-chart:hover { background: rgba(232, 184, 74, 0.12); }
+
+    .speech {
+      position: relative;
+      background: #fff4e0;
+      color: #3a2410;
+      border-radius: 1.2rem 1.2rem 1.2rem 0.3rem;
+    }
+    .speech::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      bottom: -12px;
+      border-width: 12px 10px 0 0;
+      border-style: solid;
+      border-color: #fff4e0 transparent transparent transparent;
+    }
+
+    .section-kicker {
+      letter-spacing: 0.28em;
+      color: #e8b84a;
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    .ears {
+      position: relative;
+    }
+    .ears::before,
+    .ears::after {
+      content: "";
+      position: absolute;
+      top: -16px;
+      width: 22px;
+      height: 20px;
+      background: linear-gradient(180deg, #e8923a, #c46a1a);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 2px 0 #5a3d00);
+    }
+    .ears::before { left: 22px; transform: rotate(-8deg); }
+    .ears::after { right: 22px; transform: rotate(8deg); }
+
+    .copy-ok { animation: pop 0.35s ease; }
+    @keyframes pop {
+      0% { transform: scale(0.92); }
+      60% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%) translateY(20px);
+      z-index: 80;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s ease;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cat-float, .glow-pulse, .ticker-track, .coin { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <div class="page-wash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="coins" class="fixed inset-0 z-[1] overflow-hidden pointer-events-none" aria-hidden="true"></div>
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:text-vault focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 nav-blur">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-2 group">
+        <img src="logo.png" alt="meowonfone logo" class="h-11 w-11 rounded-full object-cover ring-2 ring-gold/70 bg-cream group-hover:ring-ginger transition" />
+        <div class="leading-none">
+          <div class="font-display text-[1.35rem] gold-text tracking-wide">meowonfone</div>
+          <div class="font-mono text-[10px] text-gold/80 tracking-[0.22em]">$MFONE · SOLANA</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 font-round font-semibold text-cream/90">
+        <a href="#about" class="hover:text-gold transition">About</a>
+        <a href="#buy" class="hover:text-gold transition">How to Buy</a>
+        <a href="#chart" class="hover:text-gold transition">Chart</a>
+        <a href="#community" class="hover:text-gold transition">Community</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="https://t.me/meowonfone" target="_blank" rel="noopener noreferrer" class="hidden sm:grid h-10 w-10 place-items-center rounded-full overflow-hidden ring-1 ring-gold/40 hover:ring-gold hover:scale-110 transition" aria-label="Telegram">
+          <img src="tg.png" alt="" class="h-10 w-10 object-cover" />
+        </a>
+        <a href="https://x.com/meowonfone" target="_blank" rel="noopener noreferrer" class="hidden sm:grid h-10 w-10 place-items-center rounded-full overflow-hidden bg-black ring-1 ring-gold/40 hover:ring-gold hover:scale-110 transition" aria-label="X / Twitter">
+          <img src="x.png" alt="" class="h-10 w-10 object-cover" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy glow-pulse hidden sm:inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-round font-bold text-sm">
+          Buy Now
+        </a>
+        <button id="menuBtn" class="md:hidden grid h-10 w-10 place-items-center rounded-xl vault-card text-gold" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h12M4 10h12M4 14h12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gold/20 px-4 pb-4 pt-2 space-y-2 font-round font-semibold bg-vault/95">
+      <a href="#about" class="block py-2 text-cream/90">About</a>
+      <a href="#buy" class="block py-2 text-cream/90">How to Buy</a>
+      <a href="#chart" class="block py-2 text-cream/90">Chart</a>
+      <a href="#community" class="block py-2 text-cream/90">Community</a>
+      <div class="flex gap-3 pt-2">
+        <a href="https://t.me/meowonfone" target="_blank" rel="noopener noreferrer" class="flex-1 vault-card rounded-xl py-2 flex items-center justify-center gap-2">
+          <img src="tg.png" alt="" class="h-6 w-6 rounded-full" /> Telegram
+        </a>
+        <a href="https://x.com/meowonfone" target="_blank" rel="noopener noreferrer" class="flex-1 vault-card rounded-xl py-2 flex items-center justify-center gap-2">
+          <img src="x.png" alt="" class="h-6 w-6 rounded-full" /> X
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="relative z-10 min-h-[100svh] flex flex-col">
+      <div class="absolute inset-0">
+        <img src="banner.png" alt="meowonfone kitten sitting on a vault of gold coins, on the phone" class="h-full w-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-b from-vault/80 via-vault/25 to-vault"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(12,9,6,0.55)_100%)]"></div>
+      </div>
+
+      <div class="relative z-10 flex-1 flex flex-col justify-between max-w-6xl mx-auto w-full px-4 pt-28 pb-10">
+        <div class="flex flex-col items-center text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-vault/50 px-3 py-1 font-mono text-[11px] tracking-[0.2em] text-goldlight backdrop-blur-md">
+            <span class="h-1.5 w-1.5 rounded-full bg-ginger animate-pulse"></span>
+            LIVE ON SOLANA
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_auto] items-end gap-8 mt-10">
+          <div>
+            <img src="logo.png" alt="" class="cat-float h-28 w-28 sm:h-36 sm:w-36 rounded-full object-cover bg-cream ring-4 ring-gold shadow-glow mb-5" />
+            <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl gold-text leading-[0.9] drop-shadow-lg">
+              meowonfone
+            </h1>
+            <p class="mt-2 font-round text-2xl sm:text-3xl text-ginger font-semibold tracking-wide">$MFONE</p>
+            <p class="mt-4 max-w-xl text-lg sm:text-xl text-cream/90 font-semibold leading-snug">
+              meowonfone is bringing cute feline chaos, viral vibes, and nonstop meme energy to Solana.
+            </p>
+
+            <div class="mt-6 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
+              <button type="button" id="copyCa" class="vault-card group flex items-center gap-3 rounded-2xl px-4 py-3 text-left">
+                <span class="font-mono text-[10px] tracking-[0.25em] text-gold">CA</span>
+                <span id="caText" class="font-mono text-sm sm:text-base text-cream truncate max-w-[58vw] sm:max-w-xs">TBA</span>
+                <span class="ml-auto shrink-0 rounded-lg bg-gold/15 px-2 py-1 text-xs font-round font-bold text-goldlight group-hover:bg-gold group-hover:text-vault transition">Copy</span>
+              </button>
+
+              <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy glow-pulse inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-round font-bold text-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-.4 2.2-2 4-4 5 2 .6 3.4 2.4 3.6 4.6.7-1.5 2-2.6 3.6-3.1C13.8 7 12.7 4.8 12 2zM7 12c-3 1.5-5 4.5-5 8h6c0-2.8 1.2-5.2 3-6.9C9.6 13.5 8 13 7 12zm10 0c-1 .9-2.6 1.5-4 1.1 1.8 1.7 3 4.1 3 6.9h6c0-3.5-2-6.5-5-8z"/></svg>
+                Buy Now
+              </a>
+              <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="btn-chart inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-round font-bold text-lg">
+                Chart
+              </a>
+            </div>
+          </div>
+
+          <div class="hidden lg:block max-w-[220px]">
+            <div class="speech px-4 py-3 font-round font-semibold text-sm shadow-lg">
+              psst. tap buy. the vault is open and the kitty is typing… 📱
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="relative z-10 border-y border-gold/25 bg-bronze/80 overflow-hidden">
+      <div class="ticker-track font-round font-bold text-gold py-3 text-sm sm:text-base">
+        <span class="px-6">MEOWONFONE</span><span class="text-ginger">✦</span>
+        <span class="px-6">$MFONE</span><span class="text-ginger">✦</span>
+        <span class="px-6">CUTE FELINE CHAOS</span><span class="text-ginger">✦</span>
+        <span class="px-6">VIRAL VIBES</span><span class="text-ginger">✦</span>
+        <span class="px-6">NONSTOP MEME ENERGY</span><span class="text-ginger">✦</span>
+        <span class="px-6">SOLANA</span><span class="text-ginger">✦</span>
+        <span class="px-6">MEOW ON THE FONE</span><span class="text-ginger">✦</span>
+        <span class="px-6">MEOWONFONE</span><span class="text-ginger">✦</span>
+        <span class="px-6">$MFONE</span><span class="text-ginger">✦</span>
+        <span class="px-6">CUTE FELINE CHAOS</span><span class="text-ginger">✦</span>
+        <span class="px-6">VIRAL VIBES</span><span class="text-ginger">✦</span>
+        <span class="px-6">NONSTOP MEME ENERGY</span><span class="text-ginger">✦</span>
+        <span class="px-6">SOLANA</span><span class="text-ginger">✦</span>
+        <span class="px-6">MEOW ON THE FONE</span><span class="text-ginger">✦</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative z-10 py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4">
+        <p class="section-kicker text-center mb-3">WHO IS CALLING</p>
+        <h2 class="font-display text-4xl sm:text-5xl text-center gold-text mb-12">feline chaos incoming</h2>
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="relative flex justify-center">
+            <div class="absolute -inset-6 rounded-full bg-gold/15 blur-3xl"></div>
+            <img src="logo.png" alt="meowonfone mascot — orange tabby on a smartphone" class="relative w-64 sm:w-80 cat-float drop-shadow-2xl" />
+          </div>
+          <div class="vault-card relative rivets rounded-3xl p-8 sm:p-10">
+            <p class="font-round text-2xl sm:text-3xl text-cream leading-snug">
+              meowonfone is bringing <span class="text-ginger">cute feline chaos</span>,
+              <span class="text-gold">viral vibes</span>, and
+              <span class="text-whisker">nonstop meme energy</span> to Solana.
+            </p>
+            <p class="mt-5 text-cream/80 leading-relaxed">
+              One ginger gremlin. One phone. A vault full of gold. $MFONE is the cat who will not stop texting the timeline — paws on the glass, bags in the air, chaos on-chain. No utility. No roadmap. Just meows, memes, and a buy button.
+            </p>
+            <div class="mt-8 grid grid-cols-2 gap-3 font-mono text-xs sm:text-sm">
+              <div class="rounded-xl bg-vault/60 border border-gold/20 px-4 py-3">
+                <div class="text-gold/70 tracking-widest">NAME</div>
+                <div class="text-cream font-bold mt-1 font-round text-base">meowonfone</div>
+              </div>
+              <div class="rounded-xl bg-vault/60 border border-gold/20 px-4 py-3">
+                <div class="text-gold/70 tracking-widest">TICKER</div>
+                <div class="text-ginger font-bold mt-1 font-round text-base">$MFONE</div>
+              </div>
+              <div class="rounded-xl bg-vault/60 border border-gold/20 px-4 py-3">
+                <div class="text-gold/70 tracking-widest">CHAIN</div>
+                <div class="text-cream font-bold mt-1 font-round text-base">Solana</div>
+              </div>
+              <div class="rounded-xl bg-vault/60 border border-gold/20 px-4 py-3">
+                <div class="text-gold/70 tracking-widest">CA</div>
+                <div class="text-cream font-bold mt-1 font-round text-base truncate">TBA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-3 gap-4">
+          <article class="vault-card ears rounded-3xl p-6 pt-8 text-center">
+            <div class="text-3xl mb-2">🐾</div>
+            <h3 class="font-round font-bold text-lg text-ginger">Cute Feline Chaos</h3>
+            <p class="mt-2 text-sm text-cream/75">A tabby with a phone and zero impulse control. That's the whole pitch.</p>
+          </article>
+          <article class="vault-card ears rounded-3xl p-6 pt-8 text-center">
+            <div class="text-3xl mb-2">📡</div>
+            <h3 class="font-round font-bold text-lg text-gold">Viral Vibes</h3>
+            <p class="mt-2 text-sm text-cream/75">Screenshots, stickers, and unhinged group chats. Built to spread.</p>
+          </article>
+          <article class="vault-card ears rounded-3xl p-6 pt-8 text-center">
+            <div class="text-3xl mb-2">⚡</div>
+            <h3 class="font-round font-bold text-lg text-whisker">Nonstop Meme Energy</h3>
+            <p class="mt-2 text-sm text-cream/75">Solana speed. Cat attention span. The timeline never sleeps.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section id="buy" class="relative z-10 py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4">
+        <p class="section-kicker text-center mb-3">TXT FROM THE VAULT</p>
+        <h2 class="font-display text-4xl sm:text-5xl text-center gold-text mb-4">How to Buy $MFONE</h2>
+        <p class="text-center text-cream/75 max-w-xl mx-auto mb-12">Four taps. One Solana wallet. The cat is already typing the instructions.</p>
+
+        <div class="grid lg:grid-cols-[1fr_400px] gap-10 items-start">
+          <ol class="grid sm:grid-cols-2 gap-4">
+            <li class="vault-card relative rivets rounded-3xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-ginger text-vault font-display text-xl">1</span>
+                <h3 class="font-round font-bold text-xl text-cream">Get a Solana wallet</h3>
+              </div>
+              <p class="text-cream/75 leading-relaxed">Install <strong class="text-gold">Phantom</strong> or <strong class="text-gold">Solflare</strong> on mobile or browser. That's your litter box for SOL and $MFONE.</p>
+            </li>
+            <li class="vault-card relative rivets rounded-3xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-ginger text-vault font-display text-xl">2</span>
+                <h3 class="font-round font-bold text-xl text-cream">Load it with SOL</h3>
+              </div>
+              <p class="text-cream/75 leading-relaxed">Buy SOL on an exchange, then send it to your wallet address. Keep a little extra for network fees.</p>
+            </li>
+            <li class="vault-card relative rivets rounded-3xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-ginger text-vault font-display text-xl">3</span>
+                <h3 class="font-round font-bold text-xl text-cream">Hit Buy Now</h3>
+              </div>
+              <p class="text-cream/75 leading-relaxed">Tap <strong class="text-ginger">Buy Now</strong> to open Pump.fun swap with SOL already selected as input. Connect your wallet when prompted.</p>
+            </li>
+            <li class="vault-card relative rivets rounded-3xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="grid h-10 w-10 place-items-center rounded-full bg-ginger text-vault font-display text-xl">4</span>
+                <h3 class="font-round font-bold text-xl text-cream">Swap SOL → $MFONE</h3>
+              </div>
+              <p class="text-cream/75 leading-relaxed">Confirm $MFONE is the output, pick your amount, swap, and you are in the vault. Copy the CA first if you want to double-check.</p>
+            </li>
+          </ol>
+
+          <aside class="phone-shell mx-auto w-full max-w-[380px] sticky top-24">
+            <div class="rounded-[2.1rem] bg-[#140f0a] overflow-hidden">
+              <div class="phone-notch"></div>
+              <div class="px-4 pb-2 flex items-center gap-3 border-b border-gold/15">
+                <img src="logo.png" alt="" class="h-9 w-9 rounded-full bg-cream object-cover" />
+                <div>
+                  <div class="font-round font-bold text-sm text-cream">meowonfone</div>
+                  <div class="font-mono text-[10px] text-gold/80">$MFONE · online</div>
+                </div>
+              </div>
+              <div class="p-4 space-y-3 min-h-[340px]">
+                <div class="flex gap-2 items-end">
+                  <img src="logo.png" alt="" class="h-7 w-7 rounded-full bg-cream object-cover shrink-0" />
+                  <div class="bubble px-3 py-2 text-sm">step 1 — grab phantom or solflare 🐱</div>
+                </div>
+                <div class="flex gap-2 items-end">
+                  <img src="logo.png" alt="" class="h-7 w-7 rounded-full bg-cream object-cover shrink-0" />
+                  <div class="bubble px-3 py-2 text-sm">step 2 — dump some SOL in there. no sol no meow</div>
+                </div>
+                <div class="flex gap-2 items-end">
+                  <img src="logo.png" alt="" class="h-7 w-7 rounded-full bg-cream object-cover shrink-0" />
+                  <div class="bubble px-3 py-2 text-sm">step 3 — tap Buy Now. pump.fun opens. connect wallet</div>
+                </div>
+                <div class="flex gap-2 items-end">
+                  <img src="logo.png" alt="" class="h-7 w-7 rounded-full bg-cream object-cover shrink-0" />
+                  <div class="bubble px-3 py-2 text-sm">step 4 — swap SOL for $MFONE. welcome to the vault 🪙</div>
+                </div>
+              </div>
+              <div class="p-3 border-t border-gold/15">
+                <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy flex items-center justify-center rounded-full py-3 font-round font-bold">
+                  Buy Now 🐾
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <p class="mt-8 text-center text-xs text-cream/50 font-mono">Always verify the contract address before you swap. NFA. DYOR. Meow responsibly.</p>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="relative z-10 py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4">
+        <p class="section-kicker text-center mb-3">PAWS ON THE TAPE</p>
+        <h2 class="font-display text-4xl sm:text-5xl text-center gold-text mb-4">Live Chart</h2>
+        <p class="text-center text-cream/75 mb-8">Dexscreener embed · Solana · $MFONE</p>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+          <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="btn-chart rounded-full px-5 py-2.5 font-round font-bold">Open Dexscreener</a>
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy rounded-full px-5 py-2.5 font-round font-bold">Buy Now</a>
+        </div>
+
+        <div class="vault-card relative rivets rounded-3xl p-2 sm:p-3 overflow-hidden">
+          <iframe
+            title="$MFONE Dexscreener chart"
+            class="w-full h-[460px] sm:h-[560px] lg:h-[640px] rounded-2xl bg-vault"
+            src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"
+            allow="clipboard-write"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="relative z-10 py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4 text-center">
+        <p class="section-kicker mb-3">JOIN THE GROUP CHAT</p>
+        <h2 class="font-display text-4xl sm:text-5xl gold-text mb-4">the kitty keeps texting</h2>
+        <p class="text-cream/75 max-w-lg mx-auto mb-10">Hop in Telegram and X. Bring memes. Leave dignity at the vault door.</p>
+
+        <div class="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+          <a href="https://t.me/meowonfone" target="_blank" rel="noopener noreferrer" class="vault-card rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-gold hover:scale-[1.02] transition">
+            <img src="tg.png" alt="Telegram" class="h-16 w-16 rounded-full" />
+            <div class="font-round font-bold text-xl">Telegram</div>
+            <div class="font-mono text-sm text-gold">t.me/meowonfone</div>
+          </a>
+          <a href="https://x.com/meowonfone" target="_blank" rel="noopener noreferrer" class="vault-card rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-gold hover:scale-[1.02] transition">
+            <img src="x.png" alt="X / Twitter" class="h-16 w-16 rounded-full object-cover bg-black" />
+            <div class="font-round font-bold text-xl">X / Twitter</div>
+            <div class="font-mono text-sm text-gold">x.com/meowonfone</div>
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-3">
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy glow-pulse rounded-2xl px-8 py-4 font-round font-bold text-lg">Buy $MFONE Now</a>
+          <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="btn-chart rounded-2xl px-8 py-4 font-round font-bold text-lg">View Chart</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-gold/20 py-10">
+    <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-cream/60">
+      <div class="flex items-center gap-2">
+        <img src="logo.png" alt="" class="h-8 w-8 rounded-full bg-cream object-cover" />
+        <span class="font-round font-bold text-cream">meowonfone</span>
+        <span class="font-mono text-gold">$MFONE</span>
+      </div>
+      <p class="text-center">© <span id="year">2026</span> meowonfone. Not financial advice. Memes only.</p>
+      <div class="flex gap-3">
+        <a href="https://t.me/meowonfone" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="tg.png" alt="" class="h-8 w-8 rounded-full" /></a>
+        <a href="https://x.com/meowonfone" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="x.png" alt="" class="h-8 w-8 rounded-full bg-black object-cover" /></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- mobile dock -->
+  <div class="fixed bottom-4 inset-x-4 z-50 sm:hidden flex gap-2">
+    <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="btn-buy glow-pulse flex-1 rounded-full py-3 text-center font-round font-bold shadow-ginger">Buy Now</a>
+    <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="btn-chart flex-1 rounded-full py-3 text-center font-round font-bold">Chart</a>
+  </div>
+
+  <div id="toast" class="toast vault-card rounded-full px-5 py-2.5 font-round font-bold text-goldlight text-sm shadow-glow" role="status">CA copied. Meow. 🐾</div>
+
+  <script>
+    const CA = "TBA";
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const toast = document.getElementById("toast");
+    const year = document.getElementById("year");
+    if (year) year.textContent = String(new Date().getFullYear());
+
+    menuBtn?.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("hidden") === false;
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    mobileMenu?.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+      })
+    );
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    async function copyCA() {
+      try {
+        await navigator.clipboard.writeText(CA);
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = CA;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      const btn = document.getElementById("copyCa");
+      btn?.classList.add("copy-ok");
+      const label = btn?.querySelector("span:last-child");
+      if (label) {
+        const prev = label.textContent;
+        label.textContent = "Copied";
+        setTimeout(() => {
+          label.textContent = prev;
+          btn?.classList.remove("copy-ok");
+        }, 1600);
+      }
+      showToast("CA copied. Meow. 🐾");
+    }
+    document.getElementById("copyCa")?.addEventListener("click", copyCA);
+
+    (function spawnCoins() {
+      const root = document.getElementById("coins");
+      if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      for (let i = 0; i < 16; i++) {
+        const c = document.createElement("span");
+        c.className = "coin";
+        const size = 8 + Math.random() * 14;
+        c.style.width = size + "px";
+        c.style.height = size + "px";
+        c.style.left = Math.random() * 100 + "%";
+        c.style.animationDuration = 8 + Math.random() * 10 + "s";
+        c.style.animationDelay = Math.random() * 8 + "s";
+        root.appendChild(c);
+      }
+    })();
+  </script>
+</body>
+</html>
